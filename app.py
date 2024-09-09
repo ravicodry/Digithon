@@ -68,7 +68,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="HR Vox",
+    st.set_page_config(page_title="Hey HR",
                        page_icon=":question:")
     st.write(css, unsafe_allow_html=True)
     st.header("HR Vox :eyes:")
@@ -77,8 +77,8 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
-    st.markdown("We are for you :books:")
-    user_question = st.text_input("Ask your Query:")
+    st.markdown("We work for you :books:")
+    user_question = st.text_input("What can I do for You:")
     if user_question:
         handle_userinput(user_question)
 
