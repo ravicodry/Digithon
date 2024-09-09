@@ -71,7 +71,7 @@ def main():
     st.set_page_config(page_title="Hey HR",
                        page_icon=":question:")
     st.write(css, unsafe_allow_html=True)
-    st.header("HR Vox :eyes:")
+    st.header("Hey HR :eyes:")
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
