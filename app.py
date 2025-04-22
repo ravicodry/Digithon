@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain.llms import HuggingFaceHub
-# import os
+import os
 # from dotenv import load_dotenv
 
 def get_pdf_text(pdf_docs):
@@ -38,9 +38,9 @@ def get_vectorstore(text_chunks):
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 # load_dotenv
-# os.environ["OPENAI_API_KEY"]=os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY=os.getenv("OPENAI_API_KEY")
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI()
+    llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY)
     #llm = HuggingFaceHub(repo_id="tiiuae/falcon-180B-chat", model_kwargs={"temperature":0.5, "max_length":512})
 
     memory = ConversationBufferMemory(
